@@ -10,6 +10,7 @@ class SlideDrawerContainer extends StatelessWidget {
   final Widget? content;
   final List<MenuItem> items;
   final double paddingRight;
+  final String title;
 
   /// The gradient to use for the background.
   ///
@@ -45,6 +46,7 @@ class SlideDrawerContainer extends StatelessWidget {
     this.content,
     this.items = const [],
     this.brightness,
+    required this.title,
     this.backgroundColor,
     this.backgroundGradient,
     this.alignment,
@@ -86,6 +88,13 @@ class SlideDrawerContainer extends StatelessWidget {
                           margin: EdgeInsets.only(right: paddingRight),
                           child: content,
                         ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0, bottom: 30),
+                        child: Text(
+                          title,
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        ),
+                      ),
                       if (!_hasContent && _hasItems)
                         for (MenuItem item in items)
                           Container(
@@ -108,7 +117,7 @@ class MenuItemWidget extends StatelessWidget {
 
   Widget? get _leading {
     if (item.hasLeading) return item.leading!;
-    if (item.hasIcon) return Icon(item.icon, size: 30);
+    if (item.hasIcon) return Icon(item.icon, size: 25);
     return null;
   }
 
@@ -117,7 +126,10 @@ class MenuItemWidget extends StatelessWidget {
     return ListTile(
       leading: _leading,
       contentPadding: EdgeInsets.only(left: _leading == null ? 24 : 16),
-      title: Text(item.title, style: TextStyle(fontSize: 30)),
+      title: Text(
+        item.title,
+        style: TextStyle(fontSize: 25),
+      ),
       onTap: () {
         if (item.isCloseDrawerWhenTapped) {
           SlideDrawer.of(context)?.close();

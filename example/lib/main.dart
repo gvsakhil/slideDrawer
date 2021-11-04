@@ -95,11 +95,13 @@ class _AppState extends State<App> {
   }
 
   Widget get _basic => SlideDrawer(
+        title: 'Welcome',
         child: HomePage(),
         items: _items,
       );
 
   Widget get _background => SlideDrawer(
+        title: 'Welcome',
         child: HomePage(),
         brightness: Brightness.dark,
         backgroundColor: Colors.blue[900],
@@ -120,9 +122,11 @@ class _AppState extends State<App> {
         ),
         curve: Curves.easeInOut,
         items: _itemsIcon,
+        title: 'Welcome',
       );
 
   Widget get _head => SlideDrawer(
+        title: 'Welcome',
         child: HomePage(),
         brightness: Brightness.dark,
         backgroundColor: Colors.blue[800],
@@ -132,6 +136,7 @@ class _AppState extends State<App> {
       );
 
   Widget get _content => SlideDrawer(
+        title: 'Welcome',
         child: HomePage(),
         brightness: Brightness.dark,
         contentDrawer: Container(
@@ -159,6 +164,7 @@ class _AppState extends State<App> {
       );
 
   Widget get _headContent => SlideDrawer(
+        title: 'Welcome',
         child: HomePage(),
         brightness: Brightness.light,
         backgroundColor: Color(0xffededed),
@@ -180,6 +186,7 @@ class _AppState extends State<App> {
       );
 
   Widget get _fullDrawer => SlideDrawer(
+        title: 'Welcome',
         child: HomePage(),
         isRotate: false,
         offsetFromRight: 100,

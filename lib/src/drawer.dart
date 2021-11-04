@@ -78,26 +78,29 @@ class SlideDrawer extends StatefulWidget {
 
   final Function? onWillPop;
 
-  const SlideDrawer({
-    Key? key,
-    this.items = const [],
-    this.drawer,
-    this.headDrawer,
-    this.contentDrawer,
-    required this.child,
-    this.backgroundGradient,
-    this.backgroundColor,
-    this.brightness,
-    this.duration = const Duration(milliseconds: 300),
-    this.curve = Curves.easeInOut,
-    this.reverseDuration,
-    this.reverseCurve,
-    this.alignment,
-    this.offsetFromRight = 60.0,
-    this.rotateAngle = (pi / 24),
-    this.isRotate = true,
-    this.onWillPop,
-  }) : super(key: key);
+  final String title;
+
+  const SlideDrawer(
+      {Key? key,
+      this.items = const [],
+      this.drawer,
+      this.headDrawer,
+      this.contentDrawer,
+      required this.child,
+      this.backgroundGradient,
+      this.backgroundColor,
+      this.brightness,
+      this.duration = const Duration(milliseconds: 300),
+      this.curve = Curves.easeInOut,
+      this.reverseDuration,
+      this.reverseCurve,
+      this.alignment,
+      this.offsetFromRight = 60.0,
+      this.rotateAngle = (pi / 24),
+      this.isRotate = true,
+      this.onWillPop,
+      required this.title})
+      : super(key: key);
 
   static _SlideDrawerState? of(BuildContext context) =>
       context.findAncestorStateOfType<_SlideDrawerState>();
@@ -200,6 +203,7 @@ class _SlideDrawerState extends State<SlideDrawer>
         backgroundColor: widget.backgroundColor,
         backgroundGradient: widget.backgroundGradient,
         head: widget.headDrawer,
+        title: widget.title,
         content: widget.contentDrawer,
         drawer: widget.drawer,
         items: widget.items,
